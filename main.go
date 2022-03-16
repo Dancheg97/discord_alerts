@@ -1,13 +1,14 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
 
 	"github.com/bwmarrin/discordgo"
+	"github.com/ghodss/yaml"
 	"github.com/joho/godotenv"
 )
 
@@ -41,23 +42,21 @@ func init() {
 }
 
 func messageHadnler(w http.ResponseWriter, r *http.Request) {
-	input := map[string]any{}
-	json.NewDecoder(r.Body).Decode(&input)
-	message := ""
-	for k, v := range input {
-		message = message + k + " - " + fmt.Sprintln(v) + "\n"
-	}
-	err := sendDiscordMessage(message)
+	bodyBytes, err := io.ReadAll(r.Body)
+	inpyaml, err := yaml.JSONToYAML([]byte(bodyBytes))
 	if err != nil {
-		w.WriteHeader(200)
+		fmt.Println(err)
+		w.WriteHeader(400)
+		return
+	}
+	highlightedYaml := "```yaml\n" + string(inpyaml) + "\n```"
+	_, err = discord.ChannelMessageSend(channel_id, highlightedYaml)
+	if err != nil {
+		fmt.Println(err)
+		w.WriteHeader(400)
 		return
 	}
 	fmt.Println(err)
-}
-
-func sendDiscordMessage(message string) error {
-	_, err := discord.ChannelMessageSend(channel_id, message)
-	return err
 }
 
 func main() {
