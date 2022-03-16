@@ -15,3 +15,6 @@ This bot currently accepts messages in `.json` format, but it is possible to rec
 # Setup process:
 
 1) Create discord bot - go to [discord applications](https://discord.com/developers/applications) and create new application
+2) Go to OAuth2, and create URL, using URL-generator (add permission to write messages)
+3) Open generated URL in your browser, and add a bot to your server
+4) Go to bot's page in discor applicaiton
