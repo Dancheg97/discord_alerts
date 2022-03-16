@@ -10,11 +10,10 @@
 <img go align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="138px" height="138px" src="https://asterisk-pbx.ru/wiki/_media/asterisk/ari/swaggerlogo360.png" /> 
 </a>
 <a href='https://www.python.org/'>
-<img python align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="138px"  height="82px" src="https://thypix.com/wp-content/uploads/2020/04/white-arrow-92.png" />
+<img python align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="68px"  height="42px" src="https://thypix.com/wp-content/uploads/2020/04/white-arrow-92.png" />
 </a>
 <a href='https://docs.microsoft.com/en-us/dotnet/csharp/'>
-<img c# align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="138px"  height="138px" src="
-https://pnggrid.com/wp-content/uploads/2021/05/Discord-Logo-Circle-1024x1024.png" />
+<img c# align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="138px"  height="138px" src="https://cdn.logojoy.com/wp-content/uploads/20210422095037/discord-mascot.png" />
 </a>
 </p>
 
@@ -34,6 +33,7 @@ This bot currently accepts input in `json` format, but it is possible to reconfi
 # Setup process:
 
 1) Create discord bot - go to [discord applications](https://discord.com/developers/applications) and create new application
+
 2) Go to OAuth2, and create URL, using URL-generator (add permission to write messages)
 3) Open generated URL in your browser, and add a bot to your server
 4) Copy the token from `Bot` page in discord application, and paste it to your `.env` or `docker-compose` file to field `TOKEN`
@@ -57,5 +57,4 @@ services:
       - CHANNEL_ID=PASTE_CHANNELID_FROM_CHANNEL_LINK
 ```
 
-# GrayLog stup:
-
+# Test
