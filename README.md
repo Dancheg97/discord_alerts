@@ -17,9 +17,9 @@
 This project is made to show how to send discord alters from http requests. This can be used to quickly recieve importand messages from log-hubs, or orther sources.
 
 You can connect this alert system to:
-1 - GrayLog
-2 - ELK
-3 - Any application with http library
+- GrayLog
+- ELK
+- Any application with http library
 
 This bot currently accepts input in `json` format, but it is possible to reconfigure it for another input type.
 
