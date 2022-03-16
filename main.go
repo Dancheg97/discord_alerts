@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -24,22 +25,34 @@ func init() {
 		log.Fatal("problem loading channel id from env")
 	}
 	channel_id = channel
-	discord, err := discordgo.New("Bot " + token)
+	dis, err := discordgo.New("Bot " + token)
 	if err != nil {
 		log.Fatal("unable to create a bot, bad token ", err)
 	}
-	user, err := discord.User("@me")
+	discord = dis
+	user, err := dis.User("@me")
 	if err != nil {
 		log.Fatal("Unable to create user for bot ", user, err)
 	}
-	err = discord.Open()
+	err = dis.Open()
 	if err != nil {
 		log.Fatal("Unable to connect to dicsord ", err)
 	}
 }
 
 func messageHadnler(w http.ResponseWriter, r *http.Request) {
-	
+	input := map[string]any{}
+	json.NewDecoder(r.Body).Decode(&input)
+	message := ""
+	for k, v := range input {
+		message = message + k + " - " + fmt.Sprintln(v) + "\n"
+	}
+	err := sendDiscordMessage(message)
+	if err != nil {
+		w.WriteHeader(200)
+		return
+	}
+	fmt.Println(err)
 }
 
 func sendDiscordMessage(message string) error {
@@ -48,7 +61,7 @@ func sendDiscordMessage(message string) error {
 }
 
 func main() {
-	fmt.Println(" - bot is running...")
+	fmt.Println("Bot is running...")
 	http.HandleFunc("/", messageHadnler)
-	
+	log.Fatal(http.ListenAndServe(":8092", nil))
 }
