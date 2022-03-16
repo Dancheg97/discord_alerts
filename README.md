@@ -1,8 +1,8 @@
 ## <p  align="center" style="font-family:courier;font-size:180%" size=212px> DISCORD ALERTS  </p> 
 
 [![Generic badge](https://img.shields.io/badge/LICENSE-MIT-orange.svg)](LICENSE)
-[![Generic badge](https://img.shields.io/badge/DOCKER-HUB-blue.svg)](https://hub.docker.com/repository/docker/dangdancheg/tradebits)
-[![Generic badge](https://img.shields.io/badge/SWAGGER-1.1.0-green.svg)](https://app.swaggerhub.com/apis/Dancheg97/tradebits)
+[![Generic badge](https://img.shields.io/badge/DOCKER-HUB-blue.svg)](https://hub.docker.com/repository/docker/dangdancheg/discord_alerts)
+[![Generic badge](https://img.shields.io/badge/SWAGGER-1.1.0-green.svg)](https://app.swaggerhub.com/apis/Dancheg97/DISCORD_ALERST/1.0.0)
 
 
 <p align="center">
@@ -21,14 +21,14 @@ https://pnggrid.com/wp-content/uploads/2021/05/Discord-Logo-Circle-1024x1024.png
 
 
 
-This project is made to show how to send discord alters from http requests. This can be used to quickly recieve importand messages from log-sources, or that can be triggered in other importand cases.
+This project is made to show how to send discord alters from http requests. This can be used to quickly recieve importand messages from log-hubs, or orther sources.
 
 You can connect this alert system to:
 1 - GrayLog
 2 - ELK
 3 - Any application with http library
 
-This bot currently accepts messages in `.json` format, but it is possible to reconfigure it for another input type.
+This bot currently accepts input in `json` format, but it is possible to reconfigure it for another input type.
 
 
 # Setup process:
@@ -40,3 +40,22 @@ This bot currently accepts messages in `.json` format, but it is possible to rec
 5) Copy channel id from your discord channel to send messages to, and paste it to your `CHANNEL_ID` field in `.env` or `docker-compose` file
 
 Launch the app, it is ready to go!
+
+# Docker compose setup:
+
+Example of `docker-compose.yml` file:
+
+```yaml
+version: '3'
+services:
+  discord_alerts:
+    image: dangdancheg/discord_alerts:latest
+    ports:
+      - 8092:8092
+    environment:
+      - TOKEN=PASTE_YOUR_DISCORD_TOKEN
+      - CHANNEL_ID=PASTE_CHANNELID_FROM_CHANNEL_LINK
+```
+
+# GrayLog stup:
+
