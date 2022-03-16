@@ -1,4 +1,4 @@
-## <p  align="center" style="font-family:courier;font-size:180%" size=212px> DISCORD ALERTS  </p> 
+# <p  align="center" style="font-family:courier;font-size:180%" size=212px> DISCORD ALERTS  </p> 
 
 [![Generic badge](https://img.shields.io/badge/LICENSE-MIT-orange.svg)](LICENSE)
 [![Generic badge](https://img.shields.io/badge/DOCKER-HUB-blue.svg)](https://hub.docker.com/repository/docker/dangdancheg/discord_alerts)
@@ -6,15 +6,9 @@
 
 
 <p align="center">
-<a href='https://go.dev/'>
 <img go align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="138px" height="138px" src="https://asterisk-pbx.ru/wiki/_media/asterisk/ari/swaggerlogo360.png" /> 
-</a>
-<a href='https://www.python.org/'>
 <img python align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="68px"  height="42px" src="https://thypix.com/wp-content/uploads/2020/04/white-arrow-92.png" />
-</a>
-<a href='https://docs.microsoft.com/en-us/dotnet/csharp/'>
 <img c# align="center" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" width="138px"  height="138px" src="https://cdn.logojoy.com/wp-content/uploads/20210422095037/discord-mascot.png" />
-</a>
 </p>
 
 
@@ -56,5 +50,3 @@ services:
       - TOKEN=PASTE_YOUR_DISCORD_TOKEN
       - CHANNEL_ID=PASTE_CHANNELID_FROM_CHANNEL_LINK
 ```
-
-# Test
