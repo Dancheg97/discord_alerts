@@ -14,9 +14,15 @@ import (
 
 var discord *discordgo.Session
 var channel_id string
+var port string
 
 func init() {
 	godotenv.Load()
+	envport, found := os.LookupEnv("PORT")
+	if !found {
+		log.Fatal("problem loading token from env")
+	}
+	port = envport
 	token, found := os.LookupEnv("TOKEN")
 	if !found {
 		log.Fatal("problem loading token from env")
@@ -41,7 +47,7 @@ func init() {
 	}
 }
 
-func messageHadnler(w http.ResponseWriter, r *http.Request) {
+func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	bodyBytes, err := io.ReadAll(r.Body)
 	inpyaml, err := yaml.JSONToYAML([]byte(bodyBytes))
 	if err != nil {
@@ -59,8 +65,20 @@ func messageHadnler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(err)
 }
 
+func textHandler(w http.ResponseWriter, r *http.Request) {
+	bodyBytes, err := io.ReadAll(r.Body)
+	_, err = discord.ChannelMessageSend(channel_id, string(bodyBytes))
+	if err != nil {
+		fmt.Println(err)
+		w.WriteHeader(400)
+		return
+	}
+	fmt.Println(err)
+}
+
 func main() {
 	fmt.Println("Bot is running...")
-	http.HandleFunc("/", messageHadnler)
-	log.Fatal(http.ListenAndServe(":8092", nil))
+	http.HandleFunc("/json", jsonHandler)
+	http.HandleFunc("/text", jsonHandler)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }

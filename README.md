@@ -2,7 +2,7 @@
 
 [![Generic badge](https://img.shields.io/badge/LICENSE-MIT-orange.svg)](LICENSE)
 [![Generic badge](https://img.shields.io/badge/DOCKER-HUB-blue.svg)](https://hub.docker.com/repository/docker/dangdancheg/discord_alerts)
-[![Generic badge](https://img.shields.io/badge/SWAGGER-1.1.0-green.svg)](https://app.swaggerhub.com/apis/Dancheg97/DISCORD_ALERST/1.0.0)
+[![Generic badge](https://img.shields.io/badge/SWAGGER-API-green.svg)](https://app.swaggerhub.com/apis/Dancheg97/DISCORD_ALERST/1.0.0)
 
 
 <p align="center">
@@ -24,18 +24,46 @@ You can connect this alert system to:
 This bot currently accepts input in `json` format, but it is possible to reconfigure it for another input type.
 
 
-# Setup process:
+# Bot setup process:
 
 1) Create discord bot - go to [discord applications](https://discord.com/developers/applications) and create new application
 
-2) Go to OAuth2, and create URL, using URL-generator (add permission to write messages)
-3) Open generated URL in your browser, and add a bot to your server
-4) Copy the token from `Bot` page in discord application, and paste it to your `.env` or `docker-compose` file to field `TOKEN`
-5) Copy channel id from your discord channel to send messages to, and paste it to your `CHANNEL_ID` field in `.env` or `docker-compose` file
+![discord/app](assets/1.png)
+![discord/app](assets/2.png)
 
-Launch the app, it is ready to go!
+2) Go to `bot`, and press `add bot`
 
-# Docker compose setup:
+![discord/app](assets/3.png)
+![discord/app](assets/4.png)
+
+3) Press reset token, and save token in some safe place (definetly .txt file, called tokens or passwords :D)
+
+![discord/app](assets/5.png)
+![discord/app](assets/6.png)
+
+5) Go to URL-Genrator, and generate URL with required permissions
+
+![discord/app](assets/7.png)
+![discord/app](assets/8.png)
+
+6) Open that URL in browser on new page, add bot to your server
+
+![discord/app](assets/9.png)
+![discord/app](assets/10.png)
+![discord/app](assets/11.png)
+
+7) Go to your discord channel, and extract channel id from channel link
+
+![discord/app](assets/12.png)
+![discord/app](assets/13.png)
+
+8) Paste your token and channel id to docker-compose or .env file depending on your build type
+
+![discord/app](assets/14.png)
+
+Launch the bot, and enjoy!
+
+# Docker compose example:
 
 Example of `docker-compose.yml` file:
 
@@ -45,8 +73,25 @@ services:
   discord_alerts:
     image: dangdancheg/discord_alerts:latest
     ports:
-      - 8092:8092
+      - 3458:3458
     environment:
       - TOKEN=PASTE_YOUR_DISCORD_TOKEN
       - CHANNEL_ID=PASTE_CHANNELID_FROM_CHANNEL_LINK
+      - PORT=3458
 ```
+
+# ENV file example:
+
+Example of `.env` file, to build from source:
+
+```python
+TOKEN=YOUR_TOKEN
+CHANNEL_ID=YOUR_CHANNEL_ID
+```
+
+# Test via http:
+
+You can send simple request using http library:
+
+
+# Test from graylog:
