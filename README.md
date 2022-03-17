@@ -86,21 +86,18 @@ And run `docker compose up`
 
 1) Clone git repo
 ```bash
-git clone https://github.com/Dancheg97/discord_alerts
+git clone https://github.com/Dancheg97/discord_alerts ...
 ```
-2) Run using go
-```bash
-go run .
-```
-
-# ENV file example:
-
-Example of `.env` file, to build from source:
-
+2) Navigate to cloned directory
+3) Set the .env file with credentials
 ```python
 TOKEN=YOUR_TOKEN
 CHANNEL_ID=YOUR_CHAN_ID
 PORT=3458
+```
+2) Run using go
+```bash
+go run .
 ```
 
 # Http test:
