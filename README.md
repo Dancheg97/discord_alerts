@@ -113,4 +113,27 @@ You should recieve following message in your channel:
 
 # Set up for graylog:
 
+1) Navigate to alerts folder:
+
+![](assets/20.png)
+
+2) Open notifications page:
+
+![](assets/21.png)
+
+
+3) Select HTTP notification:
+
+![](assets/22.png)
+
+4) Type title, URL and press `execute test notification`
+
+![](assets/23.png)
+
+5) You should recieve message like this in graylog/discord:
+
+![](assets/24.png)
+
+![](assets/25.png)
+
 
