@@ -136,4 +136,3 @@ You should recieve following message in your channel:
 
 ![](assets/25.png)
 
-
