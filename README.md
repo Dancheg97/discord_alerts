@@ -63,9 +63,9 @@ This bot currently accepts input in `json` format, but it is possible to reconfi
 
 Launch the bot (with docker or build from scratch), and enjoy!
 
-# Docker compose example:
+# Run using docker compose:
 
-Example of `docker-compose.yml` file:
+Add to your `docker-compose.yml` file:
 
 ```yaml
 version: '3'
@@ -78,6 +78,19 @@ services:
       - TOKEN=PASTE_YOUR_DISCORD_TOKEN
       - CHANNEL_ID=PASTE_CHANNELID_FROM_CHANNEL_LINK
       - PORT=3458
+```
+
+And run `docker compose up`
+
+# Run using go:
+
+1) Clone git repo
+```bash
+git clone https://github.com/Dancheg97/discord_alerts
+```
+2) Run using go
+```bash
+go run .
 ```
 
 # ENV file example:
