@@ -28,44 +28,44 @@ This bot currently accepts input in `json` format, but it is possible to reconfi
 
 1) Create discord bot - go to [discord applications](https://discord.com/developers/applications) and create new application
 
-![discord/app](assets/1.png)
-![discord/app](assets/2.png)
+![](assets/1.png)
+![](assets/2.png)
 
 2) Go to `bot`, and press `add bot`
 
-![discord/app](assets/3.png)
-![discord/app](assets/4.png)
+![](assets/3.png)
+![](assets/4.png)
 
 3) Press reset token, and save token in some safe place (definetly .txt file, called tokens or passwords :D)
 
-![discord/app](assets/5.png)
-![discord/app](assets/6.png)
+![](assets/5.png)
+![](assets/6.png)
 
 5) Go to URL-Genrator, and generate URL with required permissions
 
-![discord/app](assets/7.png)
-![discord/app](assets/8.png)
+![](assets/7.png)
+![](assets/8.png)
 
 6) Open that URL in browser on new page, add bot to your server
 
-![discord/app](assets/9.png)
-![discord/app](assets/10.png)
-![discord/app](assets/11.png)
+![](assets/9.png)
+![](assets/10.png)
+![](assets/11.png)
 
 7) Go to your discord channel, and extract channel id from channel link
 
-![discord/app](assets/12.png)
-![discord/app](assets/13.png)
+![](assets/12.png)
+![](assets/13.png)
 
 8) Paste your token and channel id to docker-compose or .env file depending on your build type
 
-![discord/app](assets/14.png)
+![](assets/14.png)
 
-Launch the bot, and enjoy!
+Launch the bot (with docker or build from scratch), and enjoy!
 
-# Docker compose example:
+# Run using docker compose:
 
-Example of `docker-compose.yml` file:
+Add to your `docker-compose.yml` file:
 
 ```yaml
 version: '3'
@@ -80,18 +80,59 @@ services:
       - PORT=3458
 ```
 
-# ENV file example:
+And run `docker compose up`
 
-Example of `.env` file, to build from source:
+# Run using go:
 
+1) Clone git repo
+```bash
+git clone https://github.com/Dancheg97/discord_alerts ...
+```
+2) Navigate to cloned directory
+3) Set the .env file with credentials
 ```python
 TOKEN=YOUR_TOKEN
-CHANNEL_ID=YOUR_CHANNEL_ID
+CHANNEL_ID=YOUR_CHAN_ID
+PORT=3458
+```
+2) Run using go
+```bash
+go run .
 ```
 
-# Test via http:
+# Http test:
 
 You can send simple request using http library:
 
+![](assets/15.png)
 
-# Test from graylog:
+You should recieve following message in your channel:
+
+![](assets/16.png)
+
+
+# Set up for graylog:
+
+1) Navigate to alerts folder:
+
+![](assets/20.png)
+
+2) Open notifications page:
+
+![](assets/21.png)
+
+
+3) Select HTTP notification:
+
+![](assets/22.png)
+
+4) Type title, URL and press `execute test notification`
+
+![](assets/23.png)
+
+5) You should recieve message like this in graylog/discord:
+
+![](assets/24.png)
+
+![](assets/25.png)
+
