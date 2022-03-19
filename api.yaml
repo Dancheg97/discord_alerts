@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  description: |
+    Simple API to send messages to discord
+  version: "1.0.0"
+  title: DISCORD ALERTS
+  license:
+    name: MIT
+paths:
+  /json:
+    post:
+      summary: Send message to discord (accepts any json)
+      responses:
+        '200':
+          description: "OK"
+        '405':
+          description: Invalid input
+  /text:
+    post:
+      summary: Send message to discord (accepts any text)
+      responses:
+        '200':
+          description: "OK"
+        '405':
+          description: Invalid input
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/Dancheg97/DISCORD_ALERST/1.0.0
