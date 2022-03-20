@@ -1,10 +1,10 @@
 version: '3'
 services:
   discord_alerts:
-    image: dangdancheg/discord_alerts:latest
+    image: sha256:6dea3de4be4b6be8d03edffd31cc1ef6eb72bba384f1febc51c19b56465f3adb
     ports:
       - 3458:3458
     environment:
-      - TOKEN=PASTE_YOUR_DISCORD_TOKEN
-      - CHANNEL_ID=PASTE_CHANNELID_FROM_CHANNEL_LINK
+      - TOKEN=OTUzNjEzNDEzNTYzNjMzNzE0.YjHHsw.WHL4rYWMxGmiF05Y9l4gsHjFA5Q
+      - CHANNEL_ID=953611780863713362
       - PORT=3458
